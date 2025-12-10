@@ -1,3 +1,3 @@
 # Sua Viagem
-primeiro projeto
+Primeiro projeto
 Repositório criado como primeiro projeto, como aula.
