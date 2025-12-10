@@ -1,0 +1,194 @@
+{
+* margin:0; /* Remove margens padrão */
+padding: 0; /*Remove espaçamentos padrão */
+box-sizing:border-box; /* Inclui padding/borda no tamanho total */
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif; /*Define fonte geral do site*/
+    background-color: #f5f5f5; /* Cor de fundo suave */
+    color: #333; /* Cor padrão de texto */
+}
+
+/* CABEÇALHO / MENU */
+
+header {
+    background-color: #0077b6; /* Cor azul do topo */
+    padding:20px; /* Espaço interno */
+
+}
+    
+/* CONFIGURAÇÕES DE BANNER */
+/* Área do banner ocupando toda largura */
+
+.banner {
+
+    position: relative; /* Necessário para posicionar overlay e conteúdo */
+    width: 100%; /* Ocupa toda av tela */
+    height: 350px; /* Altura do banner */
+    overflow: hidden; /* Evita que elementos ultrapassem a área */
+} 
+
+/* Imagem do banner */
+.banner-img {
+
+   width: 100%; /* A imagem cobre toda a largura */
+   height: 100%; /* A imagem cobre a altura */
+   object-fit: cover; /* Corta sem distorcer */ 
+   filter: brightness(80%); /* Escurece levemente a imagem */
+}
+
+/* Sobreposição escura transparente */ 
+
+.overlay {
+    position:absolute; /* Fica acima da imagem */ 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    background: rgba(0, 0, 0, 45); /* Overlay com transparência */
+    backdrop-filter: blur(2px); /* Blur suave sobre a imsgem (recurso avançado) */
+}
+
+/* Conteúdo centralizado do banner */
+.banner-content {
+    position: absolute; /* Permite colocar o texto acima do overlay */
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajuste da centralização */ 
+    text-align: center; /* Texto alinhado ao centro */
+    color: white; /* Cor do texto */ 
+    z-index: 10; /* Fica acima da imagem e overlay */
+}
+
+/* Estilo do título do banner */
+
+.banner-content h1 {
+    font-size: 3rem; /*Título bem grande*/
+    text-transform: uppercase; /* Deixa o texto todo maiúsculo*/
+    letter-spacing: 4px; /* Espaçamento entre letras */ 
+    margin-bottom: 20px; /* Espaço abaixo do título */
+    text-shadow: 2px 2px 10px black; /* Sombra para legibilidade */
+    animation: fadein 1.5s ease-in-out; /* Animação suave */
+}
+/* MENU DENTRO DO BANNER */ 
+.menu {
+    display: flex; /* Distribui itens na horizontal */ 
+    gap: 20px; /* Espaço entre links */
+    justify-content: center; /* Centraliza os itens */ 
+    background: rgba(255, 255, 255, 0.12); /* Fundo transparente */
+    padding: 10px 20px; /* Espaçamento interno */ 
+    border-radius: 10px; /* Bordas arredondadas */
+    backdrop-filter: blur (4px); /* Blur no fundo (recurso avançado) */
+}
+
+/* Estilo dos links */
+.menu a {
+    color: #fff; /* Cor de texto */
+    font-weight: bold; /* Negrito */ 
+    text-decoration: none; /* Remove sublinhado */
+    padding: 8px 12px; /* Área clicável */ 
+    transition: 0.3s; /* Animação suave */
+}
+
+/* Efeito ao passar o mouse */ 
+.menu a:hover {
+    background: rgba(255, 255, 255, 0.3); /* Fundo claro */
+    border-radius: 5px; /* Bordas arredondadas */
+    transform: scale(1.05);/* Cresce levemente */ 
+}
+
+/* ANIMAÇÃO DO TÍTULO */
+@keyframes fadein {
+    from {
+       opacity: 0; 
+       transform: translate(-50%, -60%); /* Começa mais para cima */
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%); /* Entra no lugar final */
+    }   
+}
+nav ul {
+    list-style: none; /* REmove marcadores da lista */
+    display: flex; /* Coloca itens lado a lado */
+    gap: 20px; /* Espaço entre eles */
+}
+nav ul li a {
+    color: #fff; /* Cor branca nos links*/
+    text-decoration: none; /* Remove sublinhado */
+    font-weight: bold; /* Texto em negrito */
+}
+nav ul li a:hover {
+    text-decoration: underline; /* Efeito ao passar o mouse */
+}
+/* ÁREA DO CARROSSEL */
+.carousel {
+    width: 100%; /* Ocupa toda a largura da página */
+    max-width: 900px; /* Limita largura máxima */
+    margin: 40px auto; /* Centraliza o carrossel */
+    overflow: hidden; /* Esconde imagens que ultrapassarem a área */
+    border-radius: 10px; /* Bordas arredondadas */ 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra ao redor */
+}
+
+.slides {
+   
+    display: flex; /* Coloca as imagens lado a lado */
+    width: 300%; /* 3 imagens = 300% */
+    animation: slide 15s infinite; /* Animação automática */
+}
+.slides img {
+    width: calc(100% / 3) /* Cada imagem ocupa 100% da área do carrossel */
+}
+/* ANIMAÇÃO DO CARROSSEL */
+/* A cada porcentagem, deslocamos o carrossel para mostrar outra imagem. */
+@keyframes slide {
+    0% { transform: translateX(0); } /* Mostra imagem 1 */
+    25% { transform: translateX(0); } /* Mantém imagem 1 */
+
+    35% { transform: translateX(-100%); } /* Mostra imagem 2 */
+    60% { transform: translateX(-100%); } /* Mantém imagem 2 */
+
+    70% { transform: translateX(-200%); } /* Mostra imagem 3 */
+    95% { transform: translateX(-200%); } /* Mantém imagem 3 */
+
+    100% { transform: translateX(0); } /* Volta à imagem 1 */
+}
+
+/* SEÇÕES DO SITE */ 
+
+section { 
+    padding: 40px; /* Espaçamento interno */ 
+    text-align: center; /* Centraliza textos */
+}
+
+h1 { 
+    color: blue;
+    margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+p { 
+    font-size: 20px; /* Texto maior */
+    display: flex;
+}
+
+/* FOOTER - CONTATOS DA EMPRESA */
+
+footer { 
+    background-color: #023047; /* Fundo azul escuro */
+    color: #fff; /* TExto branco */ 
+    padding: 30px; /* Espaçamento interno */
+    margin-top: 40px; /* Espaço acima do footer */ 
+    text-align: center; /* Centraliza tudo */
+}
+ footer h3 {
+    color: rgb(227, 227, 232);
+    margin-bottom: 20px; /* Espaço abaixo do título */
+    text-transform: uppercase;
+ }
+
+ footer a {
+    color: #ffb703; /* links amarelos */
+    text-decoration: none; /* Remove sublinhado */
+ }
